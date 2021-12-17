@@ -1,0 +1,50 @@
+<ion-header>
+<ion-navbar color="tertiary" text-center>
+<ion-row>
+<ion-col>
+<button  ion-button block class = "suivre" [outline]=true icon-start (click)="onGoToConnecter()"  color="secondary">
+<ion-icon name="star"></ion-icon>
+  Se Connecter
+</button>
+</ion-col>
+<ion-col>
+<button ion-button block class = "suivre" [outline]=true  icon-start (click)="onGoToInscrire()" color="secondary">
+<ion-icon name="star"></ion-icon>
+   S'Inscrire
+</button>
+</ion-col>
+</ion-row>
+</ion-navbar>
+</ion-header>
+<ion-content padding text-center class="background" >
+
+<p>
+  Nous Simplifions La Vie Pour Vous !
+</p>
+
+  <ion-slides class="home-slide" pager="true"  autoplay=5000  control loop>
+
+    <ion-slide class="swiper-slide">
+
+          <img src="./assets/img/background/je.jpg" class="portrait"/>
+          <h2>Utilisation Facile</h2>
+          <h4>IHM compréhensible à tous !</h4>
+
+    </ion-slide>
+
+    <ion-slide class="swiper-slide">
+
+      <img src="./assets/img/background/fe.jpg" class="portrait"/>
+  <h2>Belle Expérience</h2>
+    </ion-slide>
+
+    <ion-slide class="swiper-slide">
+
+
+        <img src="./assets/img/background/se.jpg"  class="portrait"/>
+          <h2>Application Portable</h2>
+        <h4> Disponible pour tous les terminaux mobiles .</h4>
+    </ion-slide>
+
+</ion-slides>
+</ion-content>

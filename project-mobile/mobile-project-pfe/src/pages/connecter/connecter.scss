@@ -1,0 +1,57 @@
+page-connecter {
+  ion-content{
+    /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom,#3a6186 , #89253e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom,#3a6186 , #89253e);; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-size:cover;
+
+
+  }
+  ion-loading.my-loading-class {
+  .loading-wrapper {
+    background: transparent;
+    box-shadow: none;
+    .spinner-crescent circle {
+        stroke-width: 8px;
+      }
+  }
+
+}
+  ion-spinner {
+  background-color: transparent;
+  width: 40px !important;
+  height: 40px !important;
+  }
+
+  .card-background-page {
+
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+  }
+  p{
+  color: #f4f5f8;
+  font-size: 25px;
+
+  }
+
+  }

@@ -1,0 +1,81 @@
+<ion-header>
+
+  <ion-navbar color="tertiary">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle="left">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title> Se Connecter </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="card-background-page">
+
+<ion-row justify-content-center novalidate align-items-center style="height: 100%">
+  <ion-card>
+  <img src="./assets/img/background/fe.jpg"/>
+  </ion-card>
+  <p>
+    Connectez-Vous
+  </p>
+
+  <form #f="ngForm"  [formGroup]="Form"  (ngSubmit)="onSubmit(f)">
+        <ion-item>
+        <ion-label>CIN  :  </ion-label>
+        <ion-input  name="cin" type="number" formControlName="cin"  clearInput [(ngModel)]="cin" required></ion-input>
+        </ion-item>
+
+        <ion-item no-lines *ngIf="( Form.get('cin').hasError('required') ) && Form.get('cin').touched">
+
+        <div class="error">
+      Champ Obligatoire
+        </div>
+        </ion-item>
+
+        <ion-item class="error" *ngIf="!Form.controls.cin.valid  && (Form.controls.cin.dirty )">
+
+        <div class="error">
+      cin de 8 chiffres !
+        </div>
+        </ion-item>
+
+        <ion-item>
+   <ion-label>Mot de passe  :</ion-label>
+   <ion-input name="password" type="password"  formControlName="password"   clearInput [(ngModel)]="password" required></ion-input>
+        </ion-item>
+
+        <ion-item no-lines *ngIf="( Form.get('password').hasError('required') ) && Form.get('password').touched">
+
+        <div class="error">
+      Champ Obligatoire
+        </div>
+        </ion-item>
+
+                <ion-item class="error" *ngIf="!Form.controls.password.valid  && (Form.controls.password.dirty)">
+
+                <div class="error">
+              minimum/maximum : 6/15  caractères
+                </div>
+                </ion-item>
+
+        <ion-col text-center>
+        <button ion-button type="submit" block color="success"  [disabled]="Form.invalid">
+        Connectez-vous
+        </button>
+        </ion-col>
+
+   </form>
+
+   <ion-row>
+
+
+</ion-row>
+</ion-row>
+</ion-content>
+
+<style type="text/css">
+.error
+{
+color:red;
+}
+</style>

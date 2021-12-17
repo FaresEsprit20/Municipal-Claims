@@ -1,0 +1,33 @@
+<app-espace-admin></app-espace-admin>
+<div class="container">
+  <div style="text-align:center" class="alert alert-dismissible alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Bonjour {{ this.cinadmin }} ,  </strong> <a class="alert-link">Vous avez {{ this.length }}</a> Agents!.
+  </div>
+
+            <ul class="list-group">
+              <li class="list-group-item">
+                <table datatable class="row-border hover" >
+                  <thead>
+                    <tr>
+                      <th>Agent-ID</th>
+                      <th>Nom et Prénom</th>
+                      <th>Email</th>
+                      <th>Teléphone</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of items">
+                      <td>{{ item.cin }}</td>
+                      <td>{{ item.nom_prenom }}</td>
+                      <td>{{ item.mailadress }}</td>
+                      <td >{{ item.telephone }}</td>
+                      <td><button type="button" class="btn btn-labeled btn-primary" (click)="delete(item.cin)" >
+                            <span class="btn-label"><i class="glyphicon glyphicon-eye-open"></i></span>Supprimer</button></td>
+                    </tr>
+                  
+                </table>
+              </li>
+            </ul>
+</div>

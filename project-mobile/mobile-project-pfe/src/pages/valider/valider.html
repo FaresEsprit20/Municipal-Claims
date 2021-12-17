@@ -1,0 +1,80 @@
+<ion-header>
+      <ion-navbar color="tertiary">
+            <ion-title>Valider Taches</ion-title>
+      </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+      <ion-list>
+
+            <ion-row justify-content-center align-items-center style="height: 100%">
+                  <p>
+                        Commencer La Validation
+                  </p>
+                  <form #f="ngForm" novalidate [formGroup]="Form">
+                        <ion-item>
+                              <ion-label multiple="true" stacked>Tache ID: </ion-label>
+                              <ion-select formControlName="tache_id" [(ngModel)]="tache" required>
+                                    <ion-option *ngFor="let item of items">{{item.tache_id}}</ion-option>
+                              </ion-select>
+                        </ion-item>
+
+                        <ion-item no-lines
+                              *ngIf="( Form.get('tache_id').hasError('required') ) && Form.get('tache_id').touched">
+                              <div class="error">
+                                    Champ Obligatoire
+                              </div>
+                        </ion-item>
+
+                        <ion-item>
+                              <ion-label multiple="true" stacked>Etat-Tache : </ion-label>
+                              <ion-select formControlName="etat_tache" ngModel>
+                                    <ion-option>En Cours </ion-option>
+                                    <ion-option>Terminée </ion-option>
+                              </ion-select>
+                        </ion-item>
+
+                        <ion-item no-lines
+                              *ngIf="( Form.get('etat_tache').hasError('required') ) && Form.get('etat_tache').touched">
+                              <div class="error">
+                                    Champ Obligatoire
+                              </div>
+                        </ion-item>
+
+
+                        <ion-item>
+                              <button ion-button color="tertiary" (click)="presentActionSheet()"> Choix du Média</button>
+                              
+                        </ion-item>
+
+                        <ion-item *ngIf="base64Image!=null">
+                              <img src="{{base64Image}}" title="pict">
+                        </ion-item>
+
+
+                        <ion-col text-center>
+                              <button ion-button block color="success" type="submit" (click)="onSubmit(f)"
+                                    [disabled]="Form.invalid">
+                                    Valider Tache
+                              </button>
+                        </ion-col>
+                        <ion-col text-center>
+                              <button ion-button block color="danger" type="reset">
+                                    Annuler
+                              </button>
+                        </ion-col>
+                  </form>
+
+            </ion-row>
+
+      </ion-list>
+
+</ion-content>
+
+
+<style type="text/css">
+      .error {
+            color: red;
+      }
+</style>

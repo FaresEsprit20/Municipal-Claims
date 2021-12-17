@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="tertiary">
+    <ion-title>Suivre-réclamations</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="background">
+ 
+  <ion-list>
+
+    <ion-item *ngFor="let item of items">
+    <ion-thumbnail item-start *ngIf="item.photo!= null">
+      <img src="{{server+item.photo}}">
+    </ion-thumbnail>
+    <h2>Réclamation ID : {{item.rec_id}} </h2>
+    <p>Type  :  {{item.type_rec}}</p>
+    <button ion-button clear item-end (click)="onLoadReclamation(item)" >voir</button>
+  </ion-item>
+
+</ion-list>
+
+</ion-content>

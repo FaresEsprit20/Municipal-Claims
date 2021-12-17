@@ -1,0 +1,143 @@
+<ion-header>
+
+      <ion-navbar color="tertiary">
+            <ion-title>Localisation Automatique</ion-title>
+      </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+      <ion-row justify-content-center align-items-center style="height: 100%">
+            <p>
+                  Commencer La Réclamation
+            </p>
+            <form #f="ngForm" novalidate [formGroup]="Form">
+
+                  <ion-item>
+                        <ion-label multiple="true" stacked>Type réclamation : </ion-label>
+                        <ion-select formControlName="type_rec" ngModel>
+                              <ion-option>Eclairage public</ion-option>
+                              <ion-option>Voirie</ion-option>
+                              <ion-option>Proprieté</ion-option>
+                              <ion-option>Santé et hygiène</ion-option>
+                              <ion-option>Espaces verts</ion-option>
+                              <ion-option>Constructions anarchiques</ion-option>
+                              <ion-option>Occupations illégales</ion-option>
+                              <ion-option>Autres réclamations</ion-option>
+                        </ion-select>
+                  </ion-item>
+
+                  <ion-item no-lines
+                        *ngIf="( Form.get('type_rec').hasError('required') ) && Form.get('type_rec').touched">
+                        <div class="error">
+                              Champ Obligatoire
+                        </div>
+                  </ion-item>
+                  <ion-item>
+                        <ion-label multiple="true" stacked>Gouvernorat : </ion-label>
+                        <ion-select formControlName="gouvernorat" [(ngModel)]="gouv" (ionChange)="loadCommune();">
+                              <ion-option>Ariana</ion-option>
+                              <ion-option>Ben Arous</ion-option>
+                              <ion-option>Béja</ion-option>
+                              <ion-option>Bizerte</ion-option>
+                              <ion-option>Gafsa</ion-option>
+                              <ion-option>Gabès</ion-option>
+                              <ion-option>Jendouba</ion-option>
+                              <ion-option>Kairouan</ion-option>
+                              <ion-option>Kasserine</ion-option>
+                              <ion-option>Kébili</ion-option>
+                              <ion-option>Kef</ion-option>
+                              <ion-option>Mahdia</ion-option>
+                              <ion-option>Manouba</ion-option>
+                              <ion-option>Médenine</ion-option>
+                              <ion-option>Monastir</ion-option>
+                              <ion-option>Nabeul</ion-option>
+                              <ion-option>Sfax</ion-option>
+                              <ion-option>Sidi Bouzid</ion-option>
+                              <ion-option>Siliana</ion-option>
+                              <ion-option>Sousse</ion-option>
+                              <ion-option>Tataouine</ion-option>
+                              <ion-option>Tozeur</ion-option>
+                              <ion-option>Tunis</ion-option>
+                              <ion-option>Zaghouan</ion-option>
+                        </ion-select>
+                  </ion-item>
+
+                  <ion-item no-lines
+                        *ngIf="( Form.get('gouvernorat').hasError('required') ) && Form.get('gouvernorat').touched">
+                        <div class="error">
+                              Champ Obligatoire
+                        </div>
+                  </ion-item>
+
+
+                  <ion-item>
+                        <ion-label multiple="true" stacked>Commune : </ion-label>
+                        <ion-select formControlName="commune" ngModel>
+                              <ion-option *ngFor="let item of items">{{item.nom_com}}</ion-option>
+                        </ion-select>
+                  </ion-item>
+                  <ion-item no-lines
+                        *ngIf="( Form.get('commune').hasError('required') ) && Form.get('commune').touched">
+                        <div class="error">
+                              Champ Obligatoire
+                        </div>
+                  </ion-item>
+                  <ion-item>
+                        <ion-textarea formControlName="description" placeholder="Sujet de la réclamation" ngModel
+                              clearInput></ion-textarea>
+                  </ion-item>
+                  <ion-item class="error"
+                        *ngIf="!Form.controls.description.valid  && (Form.controls.description.dirty)">
+
+                        <div class="error">
+                              Non Valide !
+                        </div>
+                  </ion-item>
+                  <ion-item no-lines
+                        *ngIf="( Form.get('description').hasError('required') ) && Form.get('description').touched">
+                        <div class="error">
+                              Champ Obligatoire
+                        </div>
+                  </ion-item>
+
+                  <ion-item>
+                        <button ion-button color="tertiary" (click)="presentActionSheet()"> Choix du Média </button>
+                  </ion-item>
+
+                  <ion-item *ngIf="base64Image!=''">
+                        <img src="{{base64Image}}" title="pict">
+                  </ion-item>
+
+                  <ion-item>
+                        Latitude : {{ this.laptitude }}
+                  </ion-item>
+
+                  <ion-item>
+                        Longitude : {{ this.longitude }}
+                        </ion-item>
+
+                        
+
+                        <ion-col text-center>
+                              <button ion-button block color="success" type="submit" (click)="onSubmit(f)"
+                                    [disabled]="Form.invalid">
+                                    Effectuer Réclamation
+                              </button>
+                        </ion-col>
+                        <ion-col text-center>
+                              <button ion-button block color="danger" type="reset">
+                                    Annuler
+                              </button>
+                        </ion-col>
+            </form>
+
+      </ion-row>
+</ion-content>
+
+
+<style type="text/css">
+      .error {
+            color: red;
+      }
+</style>

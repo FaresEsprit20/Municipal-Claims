@@ -1,0 +1,4 @@
+#Mon Jun 03 12:07:54 GMT+01:00 2019
+base.0=C\:\\xampp\\htdocs\\project-mobile\\mobile-project-pfe\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

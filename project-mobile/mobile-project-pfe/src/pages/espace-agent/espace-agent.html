@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="tertiary" hideBackButton *navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle="left">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Espace-Agent</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding text-center>
+
+<ion-row justify-content-center novalidate align-items-center style="height: 100%">
+      
+  <button ion-button block [outline]=true icon-start (click)="onGoToValider()" color="secondary">
+    Valider Tâche
+  </button>
+
+  
+  <button ion-button block [outline]=true icon-start (click)="onGoToConsulter()" color="secondary">
+    Consulter Tâches &nbsp;
+    <ion-badge item-end>{{ this.nb }}</ion-badge>
+      </button>
+
+    <button ion-button block [outline]=true icon-start  (click)="onParametres()" color="secondary">
+
+    Paramètres
+    </button>
+
+    <button ion-button block [outline]=true icon-start  (click)="onLogOut()" color="secondary">
+
+    Déconnecter
+    </button>
+
+  </ion-row>
+</ion-content>

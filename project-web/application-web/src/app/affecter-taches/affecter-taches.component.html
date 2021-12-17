@@ -1,0 +1,53 @@
+<app-espace-admin></app-espace-admin>
+
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+
+    <img src="assets/logo.png" width="150px" class="user-avatar" />
+    <h1 style="color:white">Affecter Tache</h1>
+    <br /><br />
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" [formGroup]="Form" novalidate>
+
+      <div class="form-group">
+        <select  formControlName="cinagent" class="form-control" ngModel required (change)="loadAgents()">
+          <option value="" disabled selected>Cin Agent</option>
+          <option *ngFor="let item of items">{{item.cin_agent}}</option>
+        </select>
+        <span class="error" *ngIf="Form.controls.cinagent.hasError('required' ) && Form.get('cinagent').touched">Champs Obligatoire</span>
+      </div>
+
+      <div class="form-group">
+        <select  formControlName="rec" class="form-control"  ngModel required (change)="loadReclamations()">
+          <option value="" disabled selected>Réclamation ID</option>
+          <option *ngFor="let i of itemss">{{i.rec_id}}</option>
+        </select>
+        <span class="error" *ngIf="Form.controls.rec.hasError('required' ) && Form.get('rec').touched">Champs Obligatoire</span>
+      </div>
+
+
+<div class="form-group">
+  <input type="text"   class="form-control" placeholder="Sujet Tache" formControlName="sujet" ngModel  required>
+  <span class="error" *ngIf="Form.controls.sujet.hasError('required' ) && Form.get('sujet').touched">Champs Obligatoire</span>
+</div>
+
+
+<div class="form-group">
+  <input type="text"  class="form-control" placeholder="Adresse Tache" formControlName="adresse"  ngModel required>
+  <span class="error" *ngIf="Form.controls.adresse.hasError('required' ) && Form.get('adresse').touched">Champs Obligatoire</span>
+</div>
+
+    
+      <div class="btn-group-vertical" data-toggle="buttons">
+        <button type="submit" class="btn btn-success" [disabled]="!Form.valid">Affecter Tache</button><br />
+        <button type="reset" class="btn btn-danger">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<style type="text/css">
+  .error {
+    color: red;
+  }
+</style>

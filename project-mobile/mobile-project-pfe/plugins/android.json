@@ -1,0 +1,58 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-googlemaps": {
+      "API_KEY_FOR_ANDROID": "AIzaSyADmQrx0mRyOVcoOTkz90H0e8Wp81Ix6Co",
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-nativegeocoder": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    },
+    "cordova-plugin-actionsheet": {
+      "PACKAGE_NAME": "com.ionic.pfe"
+    }
+  },
+  "dependent_plugins": {}
+}

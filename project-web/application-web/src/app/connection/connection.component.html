@@ -1,0 +1,63 @@
+<div class="row">
+<div class="col-sm-8 col-sm-offset-2">
+
+<img src="assets/logo.png" width="150px" class="user-avatar" />
+       <h1 style="color:white">Se Connecter</h1><br /><br /><br />
+    <form (ngSubmit)="adminLogin(f)" #f="ngForm" [formGroup]="Form" novalidate>
+        <div class="form-group">
+            <label for="cin" style="color:white">
+                CIN
+            </label>
+            <input type="text" id="cin" name="cin" class="form-control" formControlName="cin"   ngModel required>
+            <span  class="error" *ngIf="Form.controls.cin.hasError('required' ) && Form.get('cin').touched">Champs Obligatoire</span>
+            <span  class="error" *ngIf="!Form.controls.cin.valid  && Form.controls.cin.dirty ">CIN de 8 chiffres</span>
+        </div>
+
+        <div class="form-group">
+            <label for="password" style="color:white">
+                Mot de passe
+            </label>
+            <input type="password" id="password" name="password" class="form-control" formControlName="password"   ngModel required>
+            <span  class="error" *ngIf="Form.controls.password.hasError('required' ) && Form.get('password').touched">Champs Obligatoire</span>
+            <span  class="error" *ngIf="!Form.controls.password.valid  && Form.controls.password.dirty ">Entre 6 et 15 caractères</span>
+        </div><br />
+<div class="btn-group-vertical" data-toggle="buttons">
+            <button type="submit" class="btn btn-success text-center" [disabled]="!f.valid" >Se Connecter</button><br />
+            <button type="reset" class="btn btn-danger" >Annuler</button>
+</div>
+    </form>
+
+  <div>
+      <br /><br />
+  <a routerLink="/inscription-admin" ><p style="color:white;font-size:25px;">Pas déja un membre? <span style="color:#2f2f2f;" class="glyphicon glyphicon-user"></span></p> </a>
+  </div>
+
+</div>
+</div>
+
+
+<footer class=" bg-4 ">
+  <p>&copy; E-réclamation Copyright 2019 </p>
+</footer>
+
+
+  <style>
+    .bg-4 {
+      background-color: #2f2f2f;
+      color: #ffffff;
+      position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+    }
+  </style>
+
+
+<style type="text/css">
+.error
+{
+color:red;
+}
+</style>
+

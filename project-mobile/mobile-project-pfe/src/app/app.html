@@ -1,0 +1,28 @@
+<div class="{{global.state['theme']}}">
+
+  <!--Dark Design Menu-->
+  <ion-menu [content]="content" id="menu-dark">
+    <ion-header class="sidemenuHeader">
+      <ion-toolbar>
+        <ion-item no-lines>
+          <ion-avatar item-left>
+            <h2>E</h2>
+          </ion-avatar>
+          <h2>Bienvenue à E-Reclamation !</h2>
+        </ion-item>
+      </ion-toolbar>
+    </ion-header>
+
+
+    <ion-content class="menu">
+      <ion-list>
+        <button menuClose="left" ion-item *ngFor="let p of pages " (click)="openPage(p)">
+          <ion-icon [name]="p.icon" item-left></ion-icon>  {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage"  #content swipeBackEnabled="false"></ion-nav>
+
+</div>

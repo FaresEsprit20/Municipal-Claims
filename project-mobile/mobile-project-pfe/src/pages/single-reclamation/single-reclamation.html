@@ -1,0 +1,66 @@
+<ion-header>
+
+  <ion-navbar color="tertiary">
+    <ion-title>INFORMATIONS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list >
+
+    <ion-card>
+      <ion-item>
+
+        <h3>Réclamation ID: </h3>
+        <p>{{this.items.rec_id}}</p><br />
+        <h3>Type Réclamation: </h3>
+        <p>{{ this.items.type_rec}}</p><br />
+        <h3>Etat Réclamation: </h3>
+        <p>{{ this.items.etat_reclamation}}</p><br />
+        <h3>Sujet:</h3>
+        <p>{{ this.items.sujet }}</p><br />
+        <h3>Gouvernorat: </h3>
+        <p>{{ this.items.nom_gouv }}</p><br />
+        <h3>Commune: </h3>
+        <p>{{ this.items.nom_com }}</p><br />
+        <h3>CIN Administrateur: </h3>
+        <p>{{ this.items.cin_admin }}</p><br />
+
+      </ion-item>
+
+      <h2 style="text-align:center" *ngIf="this.items.photo !=null"> PHOTO </h2>
+      <p style="text-align:center" *ngIf="this.items.photo !=null"><img src="{{server+this.items.photo}}"></p><br />
+
+      <ion-card-content>
+
+        <h3 *ngIf="this.items.adresse !=null">Adresse:</h3>
+        <p *ngIf="this.items.adresse !=null">{{ this.items.adresse }}</p><br />
+        <h3 *ngIf="this.items.postal !=null">Code Postal: </h3>
+        <p *ngIf="this.items.postal !=null">{{ this.items.postal }}</p><br />
+        <h3 *ngIf="this.items.laptitude !=null">Latitude: </h3>
+        <p *ngIf="this.items.laptitude !=null">{{ this.items.laptitude }}</p><br />
+        <h3 *ngIf="this.items.longitude !=null">Longitude: </h3>
+        <p *ngIf="this.items.longitude !=null">{{ this.items.longitude }}</p><br />
+
+      </ion-card-content>
+      
+      <ion-item >
+        <button ion-button color="tertiary" (click)="onGo()"> Justification Taches </button>
+      </ion-item>
+      <br /><br />
+      
+      <ion-row>
+
+        <ion-col align-self-center text-center>
+          <ion-note>
+            {{ this.items.datetimes }}
+          </ion-note>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-card>
+
+  </ion-list>
+</ion-content>

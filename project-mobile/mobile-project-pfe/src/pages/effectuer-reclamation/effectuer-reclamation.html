@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="tertiary" hideBackButton *navbar>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle="left">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Effectuer Réclamation</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding text-center>
+
+<ion-row justify-content-center novalidate align-items-center style="height: 100%">
+      <button ion-button block [outline]=true icon-start (click)="onGoTorecauto()" color="secondary">
+  Localisation Automatique
+      </button>
+
+    <button ion-button block [outline]=true icon-start (click)="onGotorecmanu()" color="secondary">
+  Localisation Manuelle
+    </button>
+
+    <button ion-button block [outline]=true icon-start  (click)="onLogOut()" color="secondary">
+
+    Déconnecter
+    </button>
+
+  </ion-row>
+</ion-content>

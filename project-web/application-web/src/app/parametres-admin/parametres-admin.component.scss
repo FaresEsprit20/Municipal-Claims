@@ -1,0 +1,37 @@
+$topnav-background-color: #222;
+.row{
+
+
+ text-align: center;
+  justify-content: center;
+  align-items: center;
+  position:inline;
+}
+
+.btn{
+
+        font-size: 18px;
+        line-height: 40px;
+        padding: 0 25px;
+}
+
+
+h1 {
+        font-weight: 300;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 36px;
+        small {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+ .user-avatar {
+       -webkit-border-radius: 50%;
+       border-radius: 50%;
+       border: 2px solid #fff;
+   }
+
+       .form-content {
+        padding: 40px 0;
+    }

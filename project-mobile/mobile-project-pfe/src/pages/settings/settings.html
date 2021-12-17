@@ -1,0 +1,73 @@
+<ion-header>
+
+  <ion-navbar color="tertiary" hideBackButton *navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle="left">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Paramètres</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <p align="center">
+      Modifier vos informations
+    </p>
+      <ion-row justify-content-center align-items-center style="height: 100%">
+    <form #f="ngForm"  (ngSubmit)="onSubmit(f)" [formGroup]="Form" text-center center >
+
+      <ion-item>
+        <ion-label stacked> Email :  </ion-label>
+        <ion-input  name="mailadress" type="email" formControlName="mailadress"   clearInput  [(ngModel)]="mailadr" ></ion-input>
+      </ion-item>
+
+      <ion-item no-lines *ngIf="( Form.get('mailadress').hasError('required') ) && Form.get('mailadress').touched">
+
+        <div class="error" *ngIf="Form.get('mailadress').hasError('required') && Form.get('mailadress').touched">
+          Champ Obligatoire
+        </div>
+      </ion-item>
+
+      <ion-item class="error" *ngIf="!Form.controls.mailadress.valid  && (Form.controls.mailadress.dirty)">
+
+        <div class="error">
+          Non valide
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label  stacked>Téléphone</ion-label>
+        <ion-input type="tel" formControlName="telephone"   clearInput  [(ngModel)]="phonetel"></ion-input>
+      </ion-item>
+
+      <ion-item class="error" *ngIf="!Form.controls.telephone.valid  && (Form.controls.telephone.dirty )">
+
+        <div class="error">
+          Non valide
+        </div>
+      </ion-item>
+
+      <ion-col text-center>
+        <button ion-button block type="submit" [disabled]="!f.valid" color="success" >
+          Enregistrer
+        </button>
+      </ion-col><br />
+      <ion-col text-center>
+        <button ion-button color="tertiary" (click)="onChangepassword()"> Changer mot de passe </button>
+      </ion-col>
+    </form>
+
+     
+
+  </ion-row>
+</ion-content>
+
+<style type="text/css">
+  .error
+  {
+    color:red;
+  }
+</style>

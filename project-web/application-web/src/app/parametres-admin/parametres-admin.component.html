@@ -1,0 +1,42 @@
+<app-espace-admin></app-espace-admin>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+
+                <img src="assets/logo.png" width="150px" class="user-avatar" />
+                <h1 style="color:white">Modifier Les Paramètres</h1>
+                <br /><br />
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm" [formGroup]="Form" novalidate>
+
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" formControlName="email" ngModel required>
+                        <span  class="error" *ngIf="Form.controls.email.hasError('required' ) && Form.get('email').touched">Champs Obligatoire</span>
+                        <span  class="error" *ngIf="!Form.controls.email.valid  && Form.controls.email.dirty ">Non Valide</span>
+                    </div>
+
+                    <input type="text" id="tel" name="tel" class="form-control" placeholder="Telephone  +216" formControlName="tel" ngModel required>
+                        <div class="form-group" >
+                        <span  class="error" *ngIf="Form.controls.tel.hasError('required' ) && Form.get('tel').touched">Champs Obligatoire</span>
+                        <span  class="error" *ngIf="!Form.controls.tel.valid  && Form.controls.tel.dirty ">Non Valide</span>
+                    </div>
+
+                    <div class="form-group">
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Changer Le Mot de passe " formControlName="password" ngModel>
+                  <span  class="error" *ngIf="Form.controls.password.hasError('required' ) && Form.get('password').touched">Champs Obligatoire</span>
+                  <span  class="error" *ngIf="!Form.controls.password.valid  && Form.controls.password.dirty ">Entre 6 et 15 caractères</span>
+                   </div>
+
+                    <div class="btn-group-vertical" data-toggle="buttons">
+                        <button type="submit" class="btn btn-success" [disabled]="!Form.valid" >Enregistrer</button><br />
+                        <button type="reset" class="btn btn-danger" >Annuler</button>
+                    </div>
+
+                </form>
+    </div>
+            </div>
+
+<style type="text/css">
+    .error
+    {
+        color:red;
+    }
+</style>

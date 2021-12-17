@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+      <img src="assets/logo.png" width="150px" class="user-avatar" />
+      <h1 style="color:white">Inscription Admin</h1>
+      <br /><br />
+      
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" [formGroup]="Form" novalidate>
+
+        <div class="form-group">
+          <input type="text" id="cin" name="cin" class="form-control" placeholder="N°CIN" formControlName="cin" ngModel >
+          <span  class="error" *ngIf="Form.controls.cin.hasError('required' ) && Form.get('cin').touched">Champs Obligatoire</span>
+          <span  class="error" *ngIf="!Form.controls.cin.valid  && Form.controls.cin.dirty ">CIN de 8 chiffres</span>
+        </div>
+
+        <div class="form-group" >
+          <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nom Prénom" formControlName="fullname" ngModel >
+          <span  class="error" *ngIf="Form.controls.fullname.hasError('required' ) && Form.get('fullname').touched">Champs Obligatoire</span>
+          <span  class="error" *ngIf="!Form.controls.fullname.valid  && Form.controls.fullname.dirty ">Non Valide</span>
+        </div>
+
+        <div class="form-group" >
+          <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" formControlName="email" ngModel >
+          <span  class="error" *ngIf="Form.controls.email.hasError('required' ) && Form.get('email').touched">Champs Obligatoire</span>
+          <span  class="error" *ngIf="!Form.controls.email.valid  && Form.controls.email.dirty ">Non Valide</span>
+        </div>
+
+        <div class="form-group" >
+          <input type="text" id="tel" name="tel" class="form-control" placeholder="Telephone    +216 " formControlName="tel" ngModel >
+          <span  class="error" *ngIf="Form.controls.tel.hasError('required' ) && Form.get('tel').touched">Champs Obligatoire</span>
+          <span  class="error" *ngIf="!Form.controls.tel.valid  && Form.controls.tel.dirty ">Non Valide</span>
+        </div>
+
+        <div class="form-group">
+
+          <select name="gouvernorat" formControlName="gouvernorat"  class="form-control" ngModel required (click)="loadCommune()">
+            <option value="" disabled selected>Gouvernorat</option>
+            <option>Ariana</option>
+            <option>Béja</option>
+            <option>Ben Arous</option>
+            <option>Bizerte</option>
+            <option>Gafsa</option>
+            <option>Gabès</option>
+            <option>Jendouba</option>
+            <option>Kairouan</option>
+            <option>Kasserine</option>
+            <option>Kébili</option>
+            <option>Kef</option>
+            <option>Mahdia</option>
+            <option>Manouba</option>
+            <option>Médenine</option>
+            <option>Monastir</option>
+            <option>Nabeul</option>
+            <option>Sfax</option>
+            <option>Sidi Bouzid</option>
+            <option>Siliana</option>
+            <option>Sousse</option>
+            <option>Tataouine</option>
+            <option>Tozeur</option>
+            <option>Tunis</option>
+            <option>Zaghouan</option>
+          </select>
+          <span  class="error" *ngIf="Form.controls.gouvernorat.hasError('required' ) && Form.get('gouvernorat').touched">Champs Obligatoire</span>
+        </div>
+
+        <div class="form-group">
+          <select name="commune" formControlName="commune"  class="form-control" ngModel  required>
+            <option value="" disabled selected>Commune</option>
+            <option *ngFor="let item of items">{{ item.nom_com }}</option>
+          </select>
+          <span  class="error" *ngIf="Form.controls.commune.hasError('required' ) && Form.get('commune').touched">Champs Obligatoire</span>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="password" name="password" class="form-control" placeholder=" Mot de passe de la commune " formControlName="password" ngModel required>
+          <span  class="error" *ngIf="Form.controls.password.hasError('required' ) && Form.get('password').touched">Champs Obligatoire</span>
+          <span  class="error" *ngIf="!Form.controls.password.valid  && Form.controls.password.dirty ">Entre 6 et 15 caractères</span>
+        </div>
+
+        <div class="btn-group-vertical" data-toggle="buttons">
+          <button type="submit" class="btn btn-success"  [disabled]="!f.valid">S'Inscrire</button><br />
+          <button type="reset" class="btn btn-danger" >Annuler</button>
+        </div>
+
+      </form>
+      <br />
+      <a routerLink="/connection" ><p style="color:white;font-size:25px;">Vous etes déja un membre? <span style="color:#2f2f2f;" class="glyphicon glyphicon-user"></span></p> </a>
+</div>
+</div>
+
+<style type="text/css">
+  .error
+  {
+    color:red;
+  }
+</style>

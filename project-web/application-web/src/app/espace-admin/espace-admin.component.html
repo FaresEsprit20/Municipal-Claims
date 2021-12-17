@@ -1,0 +1,65 @@
+<div class="sidenav">
+ 
+  <button class="dropdown-btn">Gérer Taches
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a (click)="onAffecterTache()">Affecter Taches</a>
+    <a [routerLink]="'/consulter-taches'">Consulter Taches</a>
+  </div>
+
+  <button class="dropdown-btn">Gérer Réclamations
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a routerLinkActive="active" [routerLink]="['/reclamation-recu']">Réclamations En Cours </a>
+    <a [routerLink]="'/reclamation-accepte'">Réclamations Acceptées </a>
+    <a [routerLink]="'/reclamation-refuse'">Réclamations Refusées </a>
+  </div>
+
+  <button class="dropdown-btn"> Gérer Agents <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a routerLinkActive="active"  [routerLink]="'/ajouter-agent'">Ajouter Agents</a>
+    <a [routerLink]="['/supprimer-agent']">Gérer Agents </a>
+  </div>
+
+  <a routerLink="/parametres-admin">Paramètres</a>
+  <a (click)="onLogout()">Déconnection</a>
+
+</div>
+
+<br />
+
+<div *ngIf="router.url === '/espace-admin'">
+<div class="panel panel-primary"  *ngFor="let item of items" >
+  <div class="panel-heading"><h3><p>Informations Profil</p></h3></div>
+  <div class="panel-body">
+    <br />
+  <strong>CIN :</strong>  <p>{{ item.cin }}</p>
+  </div>
+  <div class="panel-body">
+    <strong>Nom Complet :</strong> <p>{{ item.nom_prenom }}</p>
+  </div>
+  <div class="panel-body">
+    <strong>Occupation :</strong>
+    <p>{{ item.occupation }}</p>
+  </div>
+  <div class="panel-body">
+  <strong>Email :</strong> <p>{{ item.mailadress }}</p>
+  </div>
+  <div class="panel-body">
+    <strong>Mot de passe :</strong>
+    <p>{{ item.password }}</p>
+  </div>
+  <div class="panel-body">
+  <strong>Telephone :</strong> <p>{{ item.telephone }}</p>
+  </div>
+  <div class="panel-body">
+    <strong>Commune :</strong>
+    <p>{{ item.nom_com }}</p>
+  </div>
+ 
+</div><br />
+</div>
+
